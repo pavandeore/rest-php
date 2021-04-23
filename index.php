@@ -1,5 +1,8 @@
 <?php
 
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Credentials: true ");
+
 $request_method = $_SERVER['REQUEST_METHOD'];
 $response = array();
 
