@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h2 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Fetch Values</h2>
+
+    <div id="data"></div>
+
+    <script>
+      let mainDiv = document.querySelector("#data");
+
+      fetch("http://localhost/rest-php/")
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data.data);
+
+          data.data.forEach((e) => {
+            let div = document.createElement("div");
+            div.innerHTML = `${e.id}  -  ${e.name}`;
+            mainDiv.appendChild(div);
+          });
+        });
+    </script>
+  </body>
+</html>
